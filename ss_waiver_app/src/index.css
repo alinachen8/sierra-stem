@@ -9,56 +9,18 @@ body {
   padding-right: 20%;
 }
 
-h3 {
-  margin: 0;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* .dob {
+  flex: 0.5
 }
 
-.basic-info {
-  margin: 20px;
+.pronouns {
+  flex: 0.8
 }
 
-input {
-  height: 25px;
-  margin-right: 5px;
+.height-info {
+  flex: 2
 }
 
-select {
-  height: 29px;
-  width: 100%;
-}
-
-.name {
-  display: flex;
-  margin-bottom: 15px;
-  column-gap: 10px;
-}
-
-.firstname, 
-.lastname {
-  text-align: left;
-  display: block;
-  flex: 1;
-}
-
-.firstname-input,
-.lastname-input {
-  width: 99%;
-  margin-top: 5px;
-  overflow: hidden;
-}
-
-.personal-info {
-  display: flex;
-  text-align: left;
-  justify-content: space-between;
-  line-height: 25px;
-  column-gap: 10px;
-}
-
-
-
-
+.weight-info {
+  flex: 0.5
+} */
