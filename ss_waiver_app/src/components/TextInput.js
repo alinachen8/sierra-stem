@@ -1,11 +1,8 @@
 import { useField } from "formik";
 import classnames from "classnames";
+
 const TextInput = ({label, className, ...props}) => {
   const [field, meta] = useField(props);
-  // const inputClassName = `${className} ${meta.touched && meta.error ? "input-error" : ""}`;
-  // const inputClassNames = classnames(className, {
-  //   "input-error": meta.touched && meta.error,
-  // });
 
   return ( 
     <>

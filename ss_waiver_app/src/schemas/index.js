@@ -1,10 +1,10 @@
 import * as yup from "yup";
 
 export const formSchema = yup.object().shape({
-    firstname: yup
+    firstName: yup
         .string()
         .required("Required"),
-    lastname: yup
+    lastName: yup
         .string()
         .required("Required"),
     dob: yup
@@ -14,12 +14,12 @@ export const formSchema = yup.object().shape({
         .string()
         .oneOf(["she/her", "he/him", "they/them", "other"], "Invalid Answer")
         .required("Required"),
-    height_feet: yup
+    heightFeet: yup
         .number()
         .positive()
         .integer()
         .required("Required"),
-    height_inches: yup
+    heightInches: yup
         .number()
         .positive()
         .integer()
@@ -31,4 +31,7 @@ export const formSchema = yup.object().shape({
         .positive()
         .integer()
         .required("Required"),
+    insurance: yup
+        .string()
+        .required(),
 });

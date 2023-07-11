@@ -1,5 +1,7 @@
 import { Formik, Field, Form } from "formik";
 import TextInput from "./TextInput";
+import { formSchema } from "../schemas";
+import TextareaInput from "./TextareaInput";
 
 const onSubmit = async (values, actions) => {
     console.log("pressed submit")
@@ -17,10 +19,12 @@ const WaiverForm = () => {
                 lastName: '',
                 dob: '',
                 pronouns: '',
-                height_feet: '',
-                height_inches:'',
-                weight: ''
+                heightFeet: '',
+                heightInches:'',
+                weight: '',
+                insurance:'',
             }}
+            validationSchema={(formSchema)}
             onSubmit={(onSubmit)}
         >   
             {(props) => (
@@ -71,10 +75,10 @@ const WaiverForm = () => {
                                 <label>Height: </label> <br />
                                 <div className="height-info">
                                     <Field 
-                                        type="number" name="height_feet" placeholder="Feet" min="0"
+                                        type="number" name="heightFeet" placeholder="Feet" min="0"
                                     />
                                     <Field 
-                                        type="number" name="height_inches" placeholder="Inches" min="0"
+                                        type="number" name="heightInches" placeholder="Inches" min="0"
                                     />
                                 </div>
                             </div>
@@ -83,16 +87,33 @@ const WaiverForm = () => {
                                     label="Weight"
                                     className="input"
                                     type="number"
-                                    name="dob"
+                                    name="weight"
                                     min="1"
                                     placeholder="Pounds"
                                 />
                             </div>
                         </div>
                     </div>
-                    <div className="Insurance">
-
+                    <div className="insurance">
+                        <h3 className="insurnace-title">Insurance</h3>
+                        <TextInput 
+                            label="Each participant must independently have health insurance coverage."
+                            className="insurance-input"
+                            type="text"
+                            name="insurance"
+                            placeholder="Name of Health/Medical Insurance Company"
+                        />
                     </div>
+                    <div className="phys-acts">
+                        <h3>Physical and Outdoor Activities:</h3>
+                        <TextareaInput 
+                            label="Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to 8 hours, rock climbing, sleeping in tents outdoors, paddling during whitewater rafting trip):"
+                            name="physActsConcerns"
+                            type="text"
+                            placeholder="List your concerns here..."
+                        />
+                    </div>
+
                     <button type="submit">Submit</button>
                 </Form>
             )}
