@@ -2,6 +2,8 @@ import { Formik, Field, Form } from "formik";
 import TextInput from "./TextInput";
 import { formSchema } from "../schemas";
 import TextareaInput from "./TextareaInput";
+import RadioInput from "./RadioInput";
+import CheckboxInput from "./CheckboxInput";
 
 const onSubmit = async (values, actions) => {
     console.log("pressed submit")
@@ -30,7 +32,7 @@ const WaiverForm = () => {
             {(props) => (
                 <Form>
                     <div className='basic-info'>
-                    <h3>Basic Information</h3>
+                        <h3>Basic Information</h3>
                         <div className='name'>
                             <div className="firstName">
                                 <TextInput 
@@ -52,6 +54,7 @@ const WaiverForm = () => {
                             </div>
                             
                         </div>
+                    
                         <div className='personal-info'>
                             <div className="dob">
                                 <TextInput 
@@ -62,7 +65,6 @@ const WaiverForm = () => {
                                 />
                             </div>
                             <div className="pronouns">
-                                {/* add code so that an input box will render if other is selected */}
                                 <label>Preferred Pronouns: </label> <br />
                                 <select className='input' required>
                                     <option value='she/her'>She/Her</option>
@@ -94,6 +96,7 @@ const WaiverForm = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="insurance">
                         <h3 className="insurnace-title">Insurance</h3>
                         <TextInput 
@@ -109,8 +112,30 @@ const WaiverForm = () => {
                         <TextareaInput 
                             label="Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to 8 hours, rock climbing, sleeping in tents outdoors, paddling during whitewater rafting trip):"
                             name="physActsConcerns"
+                            className="physActs-input"
                             type="text"
                             placeholder="List your concerns here..."
+                        />
+                    </div>
+                    <div>
+                        <RadioInput 
+                            label="Do you have any food allergies?"
+                            name="allergies"
+                            className="allergies-input"
+                        />
+                    </div>
+
+                    <div>
+                        <h3>Medical Conditions</h3>
+                        <CheckboxInput 
+                            label="Other than foods, do you have allergies/reactions to any: (check any/all that apply)"
+                            name="otherAllergies"
+                            className="other-allergies-input"
+                            options = {[
+                                {value: "medications", label: "Medications"},
+                                {value: "plants-insects", label: "Plants or Insects"},
+                                {value: "other", label: "Other"}
+                            ]}
                         />
                     </div>
 
