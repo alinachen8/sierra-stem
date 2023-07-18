@@ -6,11 +6,11 @@ const RadioInput = ({label, className, ...props}) => {
     const detailName = `{field.name}-details`
 
     return (
-        <>  
+        <div>  
         {/* question label */}
             <label>{label}</label>
             <label>
-                <input 
+                <input
                     {...field}
                     {...props}
                     className= {classnames(className, {
@@ -41,7 +41,7 @@ const RadioInput = ({label, className, ...props}) => {
                 
                 </>}
 
-        </> 
+        </div> 
         
      );
 }
