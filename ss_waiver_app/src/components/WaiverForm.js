@@ -4,6 +4,7 @@ import { formSchema } from "../schemas";
 import TextareaInput from "./TextareaInput";
 import RadioInput from "./RadioInput";
 import CheckboxInput from "./CheckboxInput";
+import CustomSelect from "./SelectInput";
 
 const onSubmit = async (values, actions) => {
     console.log("pressed submit")
@@ -25,6 +26,24 @@ const WaiverForm = () => {
                 heightInches:'',
                 weight: '',
                 insurance:'',
+                physicalActivityConcerns:'',
+                allergies: '',
+                allergiesDetails: '',
+                dietaryRestrictions: '',
+                dietaryRestrictionsDetails: '',
+                otherAllergies: '',
+                otherAllergiesDetails:'',
+                medications: '',
+                medicationsDetails:'',
+                psychConditions: '',
+                psychConditionsDetails:'',
+                healthDisabilities: '',
+                healthDisabilitiesDetails:'',
+                medicalConditions: '',
+                medicalConditionsDetails:'',
+                medicalHistory: '',
+                medicalHistoryDetails: '',
+                otherConcerns: ''
             }}
             validationSchema={(formSchema)}
             onSubmit={(onSubmit)}
@@ -64,15 +83,19 @@ const WaiverForm = () => {
                                     name="dob"
                                 />
                             </div>
-                            <div className="pronouns">
-                                <label>Preferred Pronouns: </label> <br />
-                                <select className='input' required>
-                                    <option value='she/her'>She/Her</option>
-                                    <option value='he/him'>He/Him</option>
-                                    <option value='they/them'>They/Them</option>
-                                    <option value='other'>Other</option>
-                                </select>
-                            </div>
+                            
+                            <CustomSelect
+                                label="Preferred Pronouns"
+                                name="pronouns"
+                                placeholder="Preferred Pronouns"
+                                className="pronouns-input"
+                            >
+                                <option value="">Select</option>
+                                <option value="she/her">She/Her</option>   
+                                <option value="he/him">He/Him</option>
+                                <option value="they/them">They/Them</option>
+                                <option value="other">Other</option>
+                            </CustomSelect>
                             <div>
                                 <label>Height: </label> <br />
                                 <div className="height-info">
@@ -107,12 +130,12 @@ const WaiverForm = () => {
                             placeholder="Name of Health/Medical Insurance Company"
                         />
                     </div>
-                    <div className="phys-acts">
+                    <div className="phys-activities">
                         <h3>Physical and Outdoor Activities:</h3>
                         <TextareaInput 
                             label="Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to 8 hours, rock climbing, sleeping in tents outdoors, paddling during whitewater rafting trip):"
-                            name="physActsConcerns"
-                            className="physActs-input"
+                            name="physicalActivityConcerns"
+                            className="physical-activity-input"
                             type="text"
                             placeholder="List your concerns here..."
                         />
@@ -128,8 +151,8 @@ const WaiverForm = () => {
 
                             <RadioInput 
                                 label="Do you have any other dietary restrictions?"
-                                name="allergies"
-                                className="allergies-input"
+                                name="dietaryRestrictions"
+                                className="dietary-restrictions-input"
                             />
                         </div>
                     </div>
@@ -158,20 +181,20 @@ const WaiverForm = () => {
                             
                             <RadioInput 
                                 label="Are you experiencing any psychiatric conditions that could impact your participation?"
-                                name="psych-conditions"
+                                name="psychConditions"
                                 className="psych-conditions-input"
                             />
                             
                             <RadioInput 
                                 label="Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?"
-                                name="allergies"
-                                className="allergies-input"
+                                name="healthDisabilities"
+                                className="health-disabilities-input"
                             />
                             
                             <CheckboxInput 
                                 label="Do you have any of the following conditions? (check any/all that apply)
                                 "
-                                name="medical-conditions"
+                                name="medicalConditions"
                                 className="medical-conditions-input"
                                 options = {[
                                     {value: "asthma", label: "Asthma"},
@@ -185,13 +208,13 @@ const WaiverForm = () => {
                             <CheckboxInput 
                                 label="Do you have a history of any of the following conditions? (check any/all that apply)
                                 "
-                                name="medical-history"
+                                name="medicalHistory"
                                 className="medical-history-input"
                                 options = {[
-                                    {value: "fainting", label: "Asthma"},
-                                    {value: "high-blood-pressure", label: "Diabetes"},
-                                    {value: "heart-palpitations", label: "Epilepsy"},
-                                    {value: "chest-pain-or-pressure", label: "Pregnancy"},
+                                    {value: "fainting", label: "Vasovagal syncope or other fainting episodes"},
+                                    {value: "high-blood-pressure", label: "High blood pressure"},
+                                    {value: "heart-palpitations", label: "Heart palpitations"},
+                                    {value: "chest-pain-or-pressure", label: "Chest pain or pressure"},
                                     {value: "heart-attack", label: "Heart Condition"},
                                     {value: "heart-disease", label: "Heart Disease"},
                                     {value: "heart-murmur", label: "Heart Murmur"},
@@ -206,7 +229,7 @@ const WaiverForm = () => {
                     <div>
                         <TextareaInput 
                             label="Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs."
-                            name="other-concerns"
+                            name="otherConcerns"
                             className="other-concerns-input"
                             type="text"
                             placeholder="List your concerns here..."
