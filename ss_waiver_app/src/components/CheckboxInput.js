@@ -1,6 +1,7 @@
 import { useField } from "formik";
 import { useEffect, useState } from "react";
 import classnames from "classnames"
+import { StyledAnswer } from "../styles/FormStyles";
 
 const CheckboxInput = ({label, className, options, ...props}) => {
     const [field, meta] = useField(props);
@@ -25,11 +26,11 @@ const CheckboxInput = ({label, className, options, ...props}) => {
     console.log(label.key);
 
     return (
-        <>
+        <div>
             <label>{label}</label>
 
             {options.map((option) => 
-                <label key={option.value}>
+                <StyledAnswer key={option.value}>
                     <input 
                         type="checkbox"
                         value={option.value}
@@ -40,7 +41,7 @@ const CheckboxInput = ({label, className, options, ...props}) => {
                             })}
                     />
                     {option.label}
-                </label>
+                </StyledAnswer>
                 
             )}
             
@@ -55,7 +56,7 @@ const CheckboxInput = ({label, className, options, ...props}) => {
                 />
             </>
             }
-        </>
+        </div>
      );
 }
  

@@ -1,5 +1,6 @@
 import { useField } from "formik";
 import classnames from "classnames";
+import { StyledQuestionLabel, StyledAnswer } from "../styles/FormStyles";
 
 const RadioInput = ({label, className, ...props}) => {
     const [field, meta] = useField(props);
@@ -8,8 +9,8 @@ const RadioInput = ({label, className, ...props}) => {
     return (
         <div>  
         {/* question label */}
-            <label>{label}</label>
-            <label>
+            <StyledQuestionLabel>{label}</StyledQuestionLabel>
+            <StyledAnswer>
                 <input
                     {...field}
                     {...props}
@@ -20,8 +21,8 @@ const RadioInput = ({label, className, ...props}) => {
                     value="yes"
                 /> 
                 Yes
-            </label>
-            <label>
+            </StyledAnswer>
+            <StyledAnswer>
                 <input 
                     {...field}
                     {...props}
@@ -32,7 +33,7 @@ const RadioInput = ({label, className, ...props}) => {
                     value="no"
                 /> 
                 No
-            </label>
+            </StyledAnswer>
             
             {field.value === "yes" && 
                 <>

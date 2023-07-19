@@ -1,5 +1,6 @@
 import { useField } from "formik";
 import classnames from "classnames";
+import { StyledTextarea } from "../styles/FormStyles";
 
 const TextareaInput = ({label, className, ...props}) => {
     const [field, meta] = useField(props);
@@ -9,7 +10,7 @@ const TextareaInput = ({label, className, ...props}) => {
         {/* {console.log(meta.touched)} */}
         <label>{label}</label> <br />
 
-        <textarea
+        <StyledTextarea
             {...field}
             {...props}
             className = {classnames(className, {

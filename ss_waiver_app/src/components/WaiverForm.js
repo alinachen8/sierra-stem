@@ -117,83 +117,90 @@ const WaiverForm = () => {
                             placeholder="List your concerns here..."
                         />
                     </div>
-                    <div>
-                        <RadioInput 
-                            label="Do you have any food allergies?"
-                            name="allergies"
-                            className="allergies-input"
-                        />
+                    <div className="dietary-info">
+                        <h3>Dietary Information</h3>
+                        <div className="dietary-info-questions">
+                            <RadioInput 
+                                label="Do you have any food allergies?"
+                                name="allergies"
+                                className="allergies-input"
+                            />
 
-                        <RadioInput 
-                            label="Do you have any other dietary restrictions?"
-                            name="allergies"
-                            className="allergies-input"
-                        />
+                            <RadioInput 
+                                label="Do you have any other dietary restrictions?"
+                                name="allergies"
+                                className="allergies-input"
+                            />
+                        </div>
                     </div>
 
-                    <div>
+                    <div className="med-conditions">
                         <h3>Medical Conditions</h3>
-                        <CheckboxInput 
-                            label="Other than foods, do you have allergies/reactions to any: (check any/all that apply)"
-                            name="otherAllergies"
-                            className="other-allergies-input"
-                            options = {[
-                                {value: "medications", label: "Medications"},
-                                {value: "plants-insects", label: "Plants or Insects"},
-                                {value: "other", label: "Other"}
-                            ]}
-                        />
+                        <div className="med-conditions-questions">
 
-                        <RadioInput 
-                            label="Are you currently taking any medications"
-                            name="medications"
-                            className="medications-input"
-                        />
                         
-                        <RadioInput 
-                            label="Are you experiencing any psychiatric conditions that could impact your participation?"
-                            name="psych-conditions"
-                            className="psych-conditions-input"
-                        />
-                        
-                        <RadioInput 
-                            label="Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?"
-                            name="allergies"
-                            className="allergies-input"
-                        />
-                        
-                        <CheckboxInput 
-                            label="Do you have any of the following conditions? (check any/all that apply)
-                            "
-                            name="medical-conditions"
-                            className="medical-conditions-input"
-                            options = {[
-                                {value: "asthma", label: "Asthma"},
-                                {value: "diabetes", label: "Diabetes"},
-                                {value: "epilepsy", label: "Epilepsy"},
-                                {value: "pregnancy", label: "Pregnancy"},
-                                {value: "heart-condition", label: "Heart Condition"}
-                            ]}
-                        />
-                        
-                        <CheckboxInput 
-                            label="Do you have a history of any of the following conditions? (check any/all that apply)
-                            "
-                            name="medical-history"
-                            className="medical-history-input"
-                            options = {[
-                                {value: "fainting", label: "Asthma"},
-                                {value: "high-blood-pressure", label: "Diabetes"},
-                                {value: "heart-palpitations", label: "Epilepsy"},
-                                {value: "chest-pain-or-pressure", label: "Pregnancy"},
-                                {value: "heart-attack", label: "Heart Condition"},
-                                {value: "heart-disease", label: "Heart Disease"},
-                                {value: "heart-murmur", label: "Heart Murmur"},
-                                {value: "stroke", label: "Stroke"},
-                                {value: "seizure", label: "Seizure"},
-                                {value: "medical-implants-devices", label: "Medical implants or devices of any kind"}
-                            ]}
-                        />
+                            <CheckboxInput 
+                                label="Other than foods, do you have allergies/reactions to any: (check any/all that apply)"
+                                name="otherAllergies"
+                                className="other-allergies-input"
+                                options = {[
+                                    {value: "medications", label: "Medications"},
+                                    {value: "plants-insects", label: "Plants or Insects"},
+                                    {value: "other", label: "Other"}
+                                ]}
+                            />
+
+                            <RadioInput 
+                                label="Are you currently taking any medications"
+                                name="medications"
+                                className="medications-input"
+                            />
+                            
+                            <RadioInput 
+                                label="Are you experiencing any psychiatric conditions that could impact your participation?"
+                                name="psych-conditions"
+                                className="psych-conditions-input"
+                            />
+                            
+                            <RadioInput 
+                                label="Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?"
+                                name="allergies"
+                                className="allergies-input"
+                            />
+                            
+                            <CheckboxInput 
+                                label="Do you have any of the following conditions? (check any/all that apply)
+                                "
+                                name="medical-conditions"
+                                className="medical-conditions-input"
+                                options = {[
+                                    {value: "asthma", label: "Asthma"},
+                                    {value: "diabetes", label: "Diabetes"},
+                                    {value: "epilepsy", label: "Epilepsy"},
+                                    {value: "pregnancy", label: "Pregnancy"},
+                                    {value: "heart-condition", label: "Heart Condition"}
+                                ]}
+                            />
+                            
+                            <CheckboxInput 
+                                label="Do you have a history of any of the following conditions? (check any/all that apply)
+                                "
+                                name="medical-history"
+                                className="medical-history-input"
+                                options = {[
+                                    {value: "fainting", label: "Asthma"},
+                                    {value: "high-blood-pressure", label: "Diabetes"},
+                                    {value: "heart-palpitations", label: "Epilepsy"},
+                                    {value: "chest-pain-or-pressure", label: "Pregnancy"},
+                                    {value: "heart-attack", label: "Heart Condition"},
+                                    {value: "heart-disease", label: "Heart Disease"},
+                                    {value: "heart-murmur", label: "Heart Murmur"},
+                                    {value: "stroke", label: "Stroke"},
+                                    {value: "seizure", label: "Seizure"},
+                                    {value: "medical-implants-devices", label: "Medical implants or devices of any kind"}
+                                ]}
+                            />
+                        </div>
                     </div>
 
                     <div>
