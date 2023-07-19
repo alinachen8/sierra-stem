@@ -22,6 +22,7 @@ const WaiverForm = () => {
                 lastName: '',
                 dob: '',
                 pronouns: '',
+                pronounsDetails:'',
                 heightFeet: '',
                 heightInches:'',
                 weight: '',

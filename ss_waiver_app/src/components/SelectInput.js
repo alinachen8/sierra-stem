@@ -3,6 +3,7 @@ import classnames from "classnames"
 
 const CustomSelect = ({label, className, ...props}) => {
     const [field, meta, helpers] = useField(props);
+    const detailName = `${field.name}Details`;
 
     return ( 
         <div>
@@ -15,7 +16,11 @@ const CustomSelect = ({label, className, ...props}) => {
                     })}            />
             {meta.touched && meta.error && <div className="error">{meta.error}</div>}
             
+            {field.value && field.value === "other" && 
+                <input name={detailName} placeholder="Please specify"></input> 
+            }
         </div>
+
      );
 }
  
