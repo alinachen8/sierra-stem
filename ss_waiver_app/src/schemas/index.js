@@ -17,7 +17,7 @@ export const formSchema = yup.object().shape({
     pronounsDetails: yup
         .string()
         .when('pronouns', {
-            is: (pronouns) => pronouns.value && pronouns.value === "other",
+            is: (pronouns) => pronouns && pronouns.value === "other",
             then: yup.string().required("Required")
         }),
     heightFeet: yup

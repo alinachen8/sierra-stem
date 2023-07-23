@@ -5,6 +5,7 @@ import TextareaInput from "./TextareaInput";
 import RadioInput from "./RadioInput";
 import CheckboxInput from "./CheckboxInput";
 import CustomSelect from "./SelectInput";
+import TableInput from "./TableInput";
 
 const onSubmit = async (values, actions) => {
     console.log("pressed submit")
@@ -175,10 +176,12 @@ const WaiverForm = () => {
                             />
 
                             <RadioInput 
-                                label="Are you currently taking any medications"
+                                label="Are you currently taking any medication?"
                                 name="medications"
                                 className="medications-input"
                             />
+
+                            <TableInput />
                             
                             <RadioInput 
                                 label="Are you experiencing any psychiatric conditions that could impact your participation?"
