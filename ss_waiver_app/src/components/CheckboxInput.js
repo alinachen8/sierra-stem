@@ -1,4 +1,4 @@
-import { useField } from "formik";
+import { Field, useField } from "formik";
 import { useEffect, useState } from "react";
 import classnames from "classnames"
 import { StyledAnswer } from "../styles/FormStyles";
@@ -6,24 +6,6 @@ import { StyledAnswer } from "../styles/FormStyles";
 const CheckboxInput = ({label, className, options, ...props}) => {
     const [field, meta] = useField(props);
     const detailName = `{field.name}Detail`;
-    // const [checkedCount, setCheckedCount] = useState(0);
-
-    // useEffect(() => {
-    //     setCheckedCount((checkedCount) => {
-    //         console.log('in the loop', checkedCount);
-    //         if (field.value === true) {
-    //           return checkedCount + 1;
-    //         } else if (field.value === false) {
-    //           return checkedCount - 1 < 0 ? 0 : checkedCount - 1;
-    //         }
-    //         return checkedCount;
-    //       });
-    // }, [field.value, label.key]);
-
-
-    // console.log("checked boxes: ", checkedCount);
-    // console.log(field.value);
-    // console.log(label.key);
 
     return (
         <div>
@@ -31,11 +13,10 @@ const CheckboxInput = ({label, className, options, ...props}) => {
 
             {options.map((option) => 
                 <StyledAnswer key={option.value}>
-                    <input 
+                    <Field 
                         type="checkbox"
                         value={option.value}
-                        {...field}
-                        {...props}
+                        name={field.name}
                         className = {classnames(className, {
                             "input-error": meta.touched && meta.error
                             })}
@@ -46,7 +27,7 @@ const CheckboxInput = ({label, className, options, ...props}) => {
             )}
             
             {/* need to change logic bc now if uncheck one box is gone even if there are two other checked ones */}
-            {field.value && 
+            {field.value.length > 0 && 
             <>
                 <br />
                 <label>Please provide further details.</label>

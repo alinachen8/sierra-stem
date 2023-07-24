@@ -8,8 +8,8 @@ import CustomSelect from "./SelectInput";
 import TableInput from "./TableInput";
 
 const onSubmit = async (values, actions) => {
-    console.log("pressed submit")
-    console.log({values})
+    console.log("pressed submit");
+    console.log(JSON.stringify(values));
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
@@ -33,7 +33,7 @@ const WaiverForm = () => {
                 allergiesDetails: '',
                 dietaryRestrictions: '',
                 dietaryRestrictionsDetails: '',
-                otherAllergies: '',
+                otherAllergies: [],
                 otherAllergiesDetails:'',
                 medications: '',
                 medicationsDetails:'',
@@ -41,18 +41,18 @@ const WaiverForm = () => {
                 psychConditionsDetails:'',
                 healthDisabilities: '',
                 healthDisabilitiesDetails:'',
-                medicalConditions: '',
+                medicalConditions: [],
                 medicalConditionsDetails:'',
-                medicalHistory: '',
+                medicalHistory: [],
                 medicalHistoryDetails: '',
                 otherConcerns: ''
             }}
-            validationSchema={(formSchema)}
+            // validationSchema={(formSchema)}
             onSubmit={(onSubmit)}
         >   
             {(props) => (
                 <Form>
-                    <div className='basic-info'>
+                    {/* <div className='basic-info'>
                         <h3>Basic Information</h3>
                         <div className='name'>
                             <div className="firstName">
@@ -157,7 +157,7 @@ const WaiverForm = () => {
                                 className="dietary-restrictions-input"
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="med-conditions">
                         <h3>Medical Conditions</h3>
@@ -181,7 +181,7 @@ const WaiverForm = () => {
                                 className="medications-input"
                             />
 
-                            <TableInput />
+                            {/* <TableInput /> */}
                             
                             <RadioInput 
                                 label="Are you experiencing any psychiatric conditions that could impact your participation?"
@@ -230,7 +230,7 @@ const WaiverForm = () => {
                         </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <TextareaInput 
                             label="Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs."
                             name="otherConcerns"
@@ -238,7 +238,7 @@ const WaiverForm = () => {
                             type="text"
                             placeholder="List your concerns here..."
                         />
-                    </div>
+                    </div> */}
 
                     <button type="submit">Submit</button>
                 </Form>
