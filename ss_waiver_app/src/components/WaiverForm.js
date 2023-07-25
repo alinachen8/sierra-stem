@@ -6,31 +6,24 @@ import RadioInput from "./RadioInput";
 import CheckboxInput from "./CheckboxInput";
 import CustomSelect from "./SelectInput";
 import TableInput from "./TableInput";
-import { addDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db, colRef } from "../Firebase.js";
 
 const onSubmit = async (values, actions) => {
     console.log("pressed submit");
     console.log(JSON.stringify(values));
 
-    addDoc(colRef, values)
-        .then(() => {
-            console.log("great success!!")
-            actions.resetForm();
-        })
-        .catch((error) => {
-            console.log("error adding document:", error);
-        });
+    const tripId = 'test-trip'
+    const colRef = collection(db, tripId)
 
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-    // actions.resetForm();
-    // const addData = document.querySelector('.submit')
-    // addData.addEventListener('submit', (e) => {
-    //     addDoc(colRef, JSON.stringify(values))
-    // }).then(() => {
-    //     console.log("great success!!");
-    //     actions.resetForm();
-    // })
+    // addDoc(colRef, values)
+    //     .then(() => {
+    //         console.log("great success!!")
+    //         // actions.resetForm();
+    //     })
+    //     .catch((error) => {
+    //         console.log("error adding document:", error);
+    //     });
 };
 
 const WaiverForm = () => {

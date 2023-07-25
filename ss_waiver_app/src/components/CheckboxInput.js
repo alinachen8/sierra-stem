@@ -5,8 +5,11 @@ import { StyledAnswer } from "../styles/FormStyles";
 
 const CheckboxInput = ({label, className, options, ...props}) => {
     const [field, meta] = useField(props);
-    const detailName = `{field.name}Detail`;
+    const detailName = `${field.name}Details`;
 
+    // Create separate field object for conditional input
+    const [detailField, detailMeta] = useField(detailName);
+    
     return (
         <div>
             <label>{label}</label>
@@ -27,16 +30,12 @@ const CheckboxInput = ({label, className, options, ...props}) => {
             )}
             
             {/* need to change logic bc now if uncheck one box is gone even if there are two other checked ones */}
-            {field.value.length > 0 && 
+            {field.value.length > 0 && (
             <>
-                <br />
                 <label>Please provide further details.</label>
-                <input 
-                    name={detailName}
-                    type="text"
-                />
+                <input type="text" {...detailField} />
             </>
-            }
+            )}
         </div>
      );
 }
