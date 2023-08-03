@@ -105,9 +105,21 @@ select.input-error {
   text-align: left;
   margin-top: 0.25rem;
 }
+.insurance-phys-activities {
+  display: flex
+}
+
+.insurance {
+  flex: 1;
+  vertical-align: center;
+}
 
 .insurance-input {
-  width: 100%;
+  width: 95%;
+}
+
+.phys-activities {
+  flex: 2;
 }
 
 .dietary-info-questions {

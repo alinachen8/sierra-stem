@@ -50,7 +50,7 @@ export const formSchema = yup.object().shape({
         .string()
         .when('allergies', {
             is: (allergies) => allergies && allergies.value === "yes", 
-            then: yup.string().required("Required")
+            then: () => yup.string().required("Required")
         }),
     dietaryRestrictions: yup
         .string()
@@ -59,25 +59,63 @@ export const formSchema = yup.object().shape({
         .string()
         .when('dietaryRestrictions', {
             is: (dietaryRestrictions) => dietaryRestrictions && dietaryRestrictions.value === "yes", 
-            then: yup.string().required("Required")
+            then: () => yup.string().required("Required")
         }),
     otherAllergies: yup
-        .string(),
+        .array()
+        .optional(),
+    otherAllergiesDetails: yup
+        .string()
+        .when('otherAllergies', {
+            is: (otherAllergies) => Array.isArray(otherAllergies) && otherAllergies.length !== 0, 
+            then: () => yup.string().required("Required")
+        }),
     medications: yup
         .string()
         .required("Required"),
+    medicationsDetails: yup
+        .string()
+        .when('medications', {
+            is: (medications) => medications && medications.value === "yes", 
+            then: () => yup.string().required("Required")
+        }),
     psychConditions: yup
         .string()
         .required("Required"),
+    psychConditionsDetails: yup
+        .string()
+        .when('psychConditions', {
+            is: (psychConditions) => psychConditions && psychConditions.value === "yes", 
+            then: () => yup.string().required("Required")
+        }),
     healthDisabilities: yup
         .string()
         .required("Required"),
+    healthDisabilitiesDetails: yup
+        .string()
+        .when('healthDisabilities', {
+            is: (healthDisabilities) => healthDisabilities && healthDisabilities.value === "yes", 
+            then: () => yup.string().required("Required")
+        }),
     medicalConditions: yup
-        .string(),
+        .array()
+        .optional(),
+    medicalConditionsDetails: yup
+        .string()
+        .when('medicalConditions', {
+            is: (medicalConditions) => Array.isArray(medicalConditions) && medicalConditions.length !== 0, 
+            then: () => yup.string().required("Required")
+        }),
     medicalHistory: yup
-        .string(),
+        .array()
+        .optional(),
+    medicalHistoryDetails: yup
+        .string()
+        .when('medicalHistory', {
+            is: (medicalHistory) => Array.isArray(medicalHistory) && medicalHistory.length !== 0, 
+            then: () => yup.string().required("Required")
+        }),
     otherConcerns: yup 
         .string()
         .optional(),
-    
 });
