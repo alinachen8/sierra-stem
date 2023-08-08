@@ -24,6 +24,9 @@ const onSubmit = async (values, actions) => {
         .catch((error) => {
             console.log("error adding document:", error);
         });
+    
+    // add another function that will add the medication information as a new doc to the medications collection
+    // in python will need to add the headers back on
 };
 
 const WaiverForm = () => {
@@ -189,19 +192,22 @@ const WaiverForm = () => {
                             />
 
                             <RadioInput 
+                                label="Are you experiencing any psychiatric conditions that could impact your participation?"
+                                name="psychConditions"
+                                className="psych-conditions-input"
+                            />
+
+                            <RadioInput 
                                 label="Are you currently taking any medications?"
                                 name="medications"
                                 className="medications-input"
                             />
 
-                            {/* <TableInput /> */}
-                            
-                            <RadioInput 
-                                label="Are you experiencing any psychiatric conditions that could impact your participation?"
-                                name="psychConditions"
-                                className="psych-conditions-input"
+                            <TableInput 
+                                label="If yes, please provide details about these medications"
+                                headerNames={['Medication Name', 'Condition', 'Dosage/Frequency', 'Administration (pill, injection, etc)', 'Self Administered? (yes/no)']}
                             />
-                            
+        
                             <RadioInput 
                                 label="Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?"
                                 name="healthDisabilities"
