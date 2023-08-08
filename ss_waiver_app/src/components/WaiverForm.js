@@ -13,9 +13,17 @@ const onSubmit = async (values, actions) => {
     console.log("pressed submit");
     console.log(JSON.stringify(values));
 
-    // const tripId = 'test-trip'
-    // const colRef = collection(db, tripId)
+    const tripId = 'test-trip'
+    const colRef = collection(db, tripId)
 
+    addDoc(colRef, values)
+        .then(() => {
+            console.log("great success!!")
+            actions.resetForm();
+        })
+        .catch((error) => {
+            console.log("error adding document:", error);
+        });
 };
 
 const WaiverForm = () => {
@@ -46,8 +54,6 @@ const WaiverForm = () => {
                 healthDisabilitiesDetails:'',
                 medicalConditions: [],
                 medicalConditionsDetails:'',
-                medicalHistory: [],
-                medicalHistoryDetails: '',
                 otherConcerns: ''
             }}
             validationSchema={(formSchema)}
@@ -101,6 +107,7 @@ const WaiverForm = () => {
                                 <option value="they/them">They/Them</option>
                                 <option value="other">Other</option>
                             </CustomSelect>
+
                             <div>
                                 <label>Height: </label> <br />
                                 <div className="height-info">
@@ -138,7 +145,7 @@ const WaiverForm = () => {
                         <div className="phys-activities">
                             <h3>Physical and Outdoor Activities:</h3>
                             <TextareaInput 
-                                label="Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to 8 hours, rock climbing, sleeping in tents outdoors, paddling during whitewater rafting trip):"
+                                label="Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to several hours):"
                                 name="physicalActivityConcerns"
                                 className="physical-activity-input"
                                 type="text"
@@ -169,12 +176,14 @@ const WaiverForm = () => {
 
                         
                             <CheckboxInput 
-                                label="Other than foods, do you have allergies/reactions to any: (check any/all that apply)"
+                                label="Other than foods, do you have allergies/reactions to any:"
+                                subLabel="(check any/all that apply)"
                                 name="otherAllergies"
                                 className="other-allergies-input"
                                 options = {[
                                     {value: "medications", label: "Medications"},
-                                    {value: "plants-insects", label: "Plants or Insects"},
+                                    {value: "plants", label: "Plants"},
+                                    {value: "insects", label: "Insects"},
                                     {value: "other", label: "Other"}
                                 ]}
                             />
@@ -198,37 +207,27 @@ const WaiverForm = () => {
                                 name="healthDisabilities"
                                 className="health-disabilities-input"
                             />
-                            
+
                             <CheckboxInput 
-                                label="Do you have any of the following conditions? (check any/all that apply)
-                                "
-                                name="medicalConditions"
-                                className="medical-conditions-input"
+                                label="Do you have any of the following conditions?"
+                                subLabel="(check any/all that apply)"
+                                name="medicalHistory"
+                                className="medical-history-input"
                                 options = {[
                                     {value: "asthma", label: "Asthma"},
                                     {value: "diabetes", label: "Diabetes"},
                                     {value: "epilepsy", label: "Epilepsy"},
                                     {value: "pregnancy", label: "Pregnancy"},
-                                    {value: "heart-condition", label: "Heart Condition"}
-                                ]}
-                            />
-                            
-                            <CheckboxInput 
-                                label="Do you have a history of any of the following conditions? (check any/all that apply)
-                                "
-                                name="medicalHistory"
-                                className="medical-history-input"
-                                options = {[
-                                    {value: "fainting", label: "Vasovagal syncope or other fainting episodes"},
                                     {value: "high-blood-pressure", label: "High blood pressure"},
                                     {value: "heart-palpitations", label: "Heart palpitations"},
                                     {value: "chest-pain-or-pressure", label: "Chest pain or pressure"},
-                                    {value: "heart-attack", label: "Heart Condition"},
-                                    {value: "heart-disease", label: "Heart Disease"},
-                                    {value: "heart-murmur", label: "Heart Murmur"},
+                                    {value: "heart-attack", label: "Heart condition"},
+                                    {value: "heart-disease", label: "Heart disease"},
+                                    {value: "heart-murmur", label: "Heart murmur"},
                                     {value: "stroke", label: "Stroke"},
                                     {value: "seizure", label: "Seizure"},
-                                    {value: "medical-implants-devices", label: "Medical implants or devices of any kind"}
+                                    {value: "medical-implants-devices", label: "Medical implants or devices of any kind"},
+                                    {value: "fainting", label: "Vasovagal syncope or other fainting episodes"}
                                 ]}
                             />
                         </div>

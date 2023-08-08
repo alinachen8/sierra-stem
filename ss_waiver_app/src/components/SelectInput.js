@@ -13,7 +13,8 @@ const CustomSelect = ({label, className, ...props}) => {
                 {...props}
                 className = {classnames(className, {
                     "input-error": meta.touched && meta.error
-                    })}            />
+                })}            
+            />
             {meta.touched && meta.error && <div className="error">{meta.error}</div>}
             
             {field.value && field.value === "other" && 

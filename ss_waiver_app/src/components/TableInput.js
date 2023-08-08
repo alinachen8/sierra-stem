@@ -51,7 +51,7 @@ const TableComponent = () => {
             ))}
           </tbody>
         </table>
-        <button onClick={handleAddRow}>Add Row</button>
+        <button type="button" onClick={handleAddRow}>Add Row</button>
       </div>
     );
   };

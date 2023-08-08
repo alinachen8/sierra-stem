@@ -39,7 +39,7 @@ export const formSchema = yup.object().shape({
         .required("Required"),
     insurance: yup
         .string()
-        .required(),
+        .required("Required"),
     physicalActivityConcerns: yup
         .string()
         .optional(),
@@ -104,15 +104,6 @@ export const formSchema = yup.object().shape({
         .string()
         .when('medicalConditions', {
             is: (medicalConditions) => Array.isArray(medicalConditions) && medicalConditions.length !== 0, 
-            then: () => yup.string().required("Required")
-        }),
-    medicalHistory: yup
-        .array()
-        .optional(),
-    medicalHistoryDetails: yup
-        .string()
-        .when('medicalHistory', {
-            is: (medicalHistory) => Array.isArray(medicalHistory) && medicalHistory.length !== 0, 
             then: () => yup.string().required("Required")
         }),
     otherConcerns: yup 

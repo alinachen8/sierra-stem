@@ -38,7 +38,9 @@ const RadioInput = ({ label, className, ...props }) => {
         />
         No
       </StyledAnswer>
-
+      
+      {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+      
       {field.value === "yes" && (
         <>
           <label>Please provide further details.</label>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import classnames from "classnames"
 import { StyledAnswer } from "../styles/FormStyles";
 
-const CheckboxInput = ({label, className, options, ...props}) => {
+const CheckboxInput = ({label, subLabel, className, options, ...props}) => {
     const [field, meta] = useField(props);
     const detailName = `${field.name}Details`;
 
@@ -13,6 +13,7 @@ const CheckboxInput = ({label, className, options, ...props}) => {
     return (
         <div>
             <label>{label}</label>
+            {subLabel && <label style={{ fontStyle: 'italic' }}>{subLabel}</label>}
 
             {options.map((option) => 
                 <StyledAnswer key={option.value}>
@@ -30,7 +31,7 @@ const CheckboxInput = ({label, className, options, ...props}) => {
             )}
             
             {/* need to change logic bc now if uncheck one box is gone even if there are two other checked ones */}
-            {field.value.length > 0 && (
+            {field.value && field.value.length > 0 && (
             <>
                 <label>Please provide further details.</label>
                 <input type="text" {...detailField} />
