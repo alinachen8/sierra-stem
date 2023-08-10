@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useField } from "formik";
+import classnames from "classnames";
+import { StyledQuestionLabel, StyledAnswer } from "../styles/FormStyles";
 
-const TableComponent = ({label, className, headerNames, options, ...props}) => {
+const TableComponent = ({name, label, className, headerNames, options, ...props}) => {
     // Initial table data with header and empty rows
     const initialTableData = {
       header: [...headerNames],
@@ -22,6 +25,7 @@ const TableComponent = ({label, className, headerNames, options, ...props}) => {
         ...tableData,
         rows: newRows,
       });
+      
       setRowCount((prevRowCount) => prevRowCount - 1);
     };
 
@@ -36,7 +40,7 @@ const TableComponent = ({label, className, headerNames, options, ...props}) => {
   
     return (
       <div>
-        <label>{label}</label>
+        <StyledQuestionLabel>{label}</StyledQuestionLabel>
         <table>
           <thead>
             <tr>
