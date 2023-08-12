@@ -74,7 +74,10 @@ const WaiverForm = () => {
                 otherAllergies: [],
                 otherAllergiesDetails:'',
                 medications: '',
-                medicationsDetails: {},
+                medicationsDetails: {
+                    header: ['Medication Name', 'Condition', 'Dosage/Frequency', 'Administration (pill, injection, etc)', 'Self Administered? (yes/no)'],
+                    rows: [["", "", "", "", ""], ["", "", "", "", ""], ["", "", "", "", ""]],
+                },
                 psychConditions: '',
                 psychConditionsDetails:'',
                 healthDisabilities: '',
