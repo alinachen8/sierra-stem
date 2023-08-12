@@ -17,3 +17,8 @@ export const StyledAnswer = styled.label`
         margin-top: 0px;
     }
 `;
+
+export const StyledConditionalInput = styled.input`
+    width: 80%;
+    height: 100px;
+`;

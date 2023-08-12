@@ -1,7 +1,7 @@
 import { Field, useField } from "formik";
 import { useEffect, useState } from "react";
 import classnames from "classnames"
-import { StyledAnswer } from "../styles/FormStyles";
+import { StyledAnswer, StyledConditionalInput } from "../styles/FormStyles";
 
 const CheckboxInput = ({label, subLabel, className, options, ...props}) => {
     const [field, meta] = useField(props);
@@ -34,7 +34,7 @@ const CheckboxInput = ({label, subLabel, className, options, ...props}) => {
             {field.value && field.value.length > 0 && (
             <>
                 <label>Please provide further details.</label>
-                <input type="text" {...detailField} />
+                <StyledConditionalInput type="text" {...detailField} />
             </>
             )}
         </div>

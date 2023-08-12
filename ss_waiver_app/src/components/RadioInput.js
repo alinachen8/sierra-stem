@@ -1,7 +1,7 @@
 import React from "react";
 import { useField } from "formik";
 import classnames from "classnames";
-import { StyledQuestionLabel, StyledAnswer } from "../styles/FormStyles";
+import { StyledQuestionLabel, StyledAnswer, StyledConditionalInput } from "../styles/FormStyles";
 
 const RadioInput = ({ label, className, ...props }) => {
   const [field, meta] = useField(props);
@@ -44,7 +44,7 @@ const RadioInput = ({ label, className, ...props }) => {
       {field.value === "yes" && (
         <>
           <label>Please provide further details.</label>
-          <input type="text" {...detailField} />
+          <StyledConditionalInput type="text" {...detailField} />
         </>
       )}
     </div>
