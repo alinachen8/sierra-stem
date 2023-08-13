@@ -69,8 +69,8 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
 
     return (
       <div>
-        <StyledQuestionLabel>{label}</StyledQuestionLabel>
-        <table>
+        <StyledQuestionLabel style={{fontStyle: "italic", marginBottom: "5px"}}>{label}</StyledQuestionLabel>
+        <table className="medications-table">
           <thead>
             <tr>
               {value.header.map((headerCell, index) => (
@@ -81,7 +81,6 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
           <tbody>
             {value.rows.map((row, rowIndex) => (
               <tr key={rowIndex}>
-                {/* {console.log(rowIndex)} */}
                 {Object.entries(row).map(([cellKey, cellValue], cellIndex) => (
                   <td key={`${rowIndex}-${cellKey}`}>
                     <input
@@ -95,9 +94,11 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
             ))}
           </tbody>
         </table>
-        <button type="button" onClick={handleDeleteRow}>Delete Row</button>
-
-        <button type="button" onClick={handleAddRow}>Add Row</button>
+        <div className="table-buttons">
+          <button type="button" onClick={handleAddRow}>&#43;</button>
+          <button type="button" onClick={handleDeleteRow}>&#8722;</button>
+        </div>
+        
       </div>
     );
   };

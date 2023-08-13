@@ -246,16 +246,16 @@ const WaiverForm = () => {
                                 className="psych-conditions-input"
                             />
 
-                            <MedicationInput 
-                                label="Are you currently taking any medications?"
-                                name="medications"
-                                className="medications-input"
-                            />
-        
                             <RadioInput 
                                 label="Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?"
                                 name="healthDisabilities"
                                 className="health-disabilities-input"
+                            />
+
+                            <MedicationInput 
+                                label="Are you currently taking any medications?"
+                                name="medications"
+                                className="medications-input"
                             />
 
                             <CheckboxInput 
