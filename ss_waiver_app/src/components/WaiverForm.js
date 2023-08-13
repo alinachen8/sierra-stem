@@ -145,10 +145,30 @@ const WaiverForm = () => {
                                 <div className="height-info">
                                     <Field 
                                         type="number" name="heightFeet" placeholder="Feet" min="0"
-                                    />
+                                    >   
+                                    {({ field, meta }) => (
+                                        <div>
+                                            <input type="number" name="heightFeet" placeholder="Feet" min="0" {...field} className={meta.touched && meta.error ? 'input-error': ''}/>
+                                            {meta.touched && meta.error && (
+                                                <div className="error">{meta.error}</div>
+                                            )}
+                                        </div>
+                                    )}
+                                        
+                                    </Field>
+
                                     <Field 
                                         type="number" name="heightInches" placeholder="Inches" min="0"
-                                    />
+                                    >
+                                    {({ field, meta }) => (
+                                        <div>
+                                            <input type="number" name="heightInches" placeholder="Inches" min="0" {...field} className={meta.touched && meta.error ? 'input-error': ''}/>
+                                            {meta.touched && meta.error && (
+                                                <div className="error">{meta.error}</div>
+                                            )}
+                                    </div>
+                                    )}
+                                    </Field>
                                 </div>
                             </div>
                             <div className="weight-info">
