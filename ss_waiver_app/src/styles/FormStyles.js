@@ -18,7 +18,7 @@ export const StyledAnswer = styled.label`
     }
 `;
 
-export const StyledConditionalInput = styled.input`
+export const StyledConditionalInput = styled.textarea`
     width: 80%;
     height: 100px;
 `;

@@ -84,7 +84,6 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
                 {/* {console.log(rowIndex)} */}
                 {Object.entries(row).map(([cellKey, cellValue], cellIndex) => (
                   <td key={`${rowIndex}-${cellKey}`}>
-                    {/* {console.log(cellIndex)} */}
                     <input
                       type="text"
                       value={cellValue}
