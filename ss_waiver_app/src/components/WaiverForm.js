@@ -18,14 +18,14 @@ const onSubmit = async (values, actions) => {
     const tripId = 'test-trip'
     const colRef = collection(db, tripId)
 
-    addDoc(colRef, values)
-        .then(() => {
-            console.log("great success!!")
-            actions.resetForm();
-        })
-        .catch((error) => {
-            console.log("error adding document:", error);
-        });
+    // addDoc(colRef, values)
+    //     .then(() => {
+    //         console.log("great success!!")
+    //         actions.resetForm();
+    //     })
+    //     .catch((error) => {
+    //         console.log("error adding document:", error);
+    //     });
     
     // add another function that will add the medication information as a new doc to the medications collection
     // in python will need to add the headers back on
@@ -76,7 +76,9 @@ const WaiverForm = () => {
                 medications: '',
                 medicationsDetails: {
                     header: ['Medication Name', 'Condition', 'Dosage/Frequency', 'Administration (pill, injection, etc)', 'Self Administered? (yes/no)'],
-                    rows: [["", "", "", "", ""], ["", "", "", "", ""], ["", "", "", "", ""]],
+                    rows: [{medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
+                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
+                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
                 },
                 psychConditions: '',
                 psychConditionsDetails:'',
@@ -86,12 +88,12 @@ const WaiverForm = () => {
                 medicalConditionsDetails: '',
                 otherConcerns: ''
             }}
-            // validationSchema={(formSchema)}
+            validationSchema={(formSchema)}
             onSubmit={(onSubmit)}
         >   
             {(props) => (
                 <Form>
-                    {/* <div className='basic-info'>
+                    <div className='basic-info'>
                         <h3>Basic Information</h3>
                         <div className='name'>
                             <div className="firstName">
@@ -160,8 +162,8 @@ const WaiverForm = () => {
                                 />
                             </div>
                         </div>
-                    </div> */}
-                    {/* <div className="insurance-phys-activities"> 
+                    </div>
+                    <div className="insurance-phys-activities"> 
                         <div className="insurance">
                             <h3 className="insurance-title">Insurance</h3>
                             <TextInput 
@@ -182,8 +184,8 @@ const WaiverForm = () => {
                                 placeholder="List your concerns here..."
                             />
                         </div>
-                    </div> */}
-                    {/* <div className="dietary-info">
+                    </div>
+                    <div className="dietary-info">
                         <h3>Dietary Information</h3>
                         <div className="dietary-info-questions">
                             <RadioInput 
@@ -198,7 +200,7 @@ const WaiverForm = () => {
                                 className="dietary-restrictions-input"
                             />
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className="med-conditions">
                         <h3>Medical Conditions</h3>
@@ -236,7 +238,7 @@ const WaiverForm = () => {
                                 className="health-disabilities-input"
                             />
 
-                            {/* <CheckboxInput 
+                            <CheckboxInput 
                                 label="Do you have any of the following conditions?"
                                 subLabel="(check any/all that apply)"
                                 name="medicalHistory"
@@ -257,11 +259,11 @@ const WaiverForm = () => {
                                     {value: "medical-implants-devices", label: "Medical implants or devices of any kind"},
                                     {value: "fainting", label: "Vasovagal syncope or other fainting episodes"}
                                 ]}
-                            /> */}
+                            />
                         </div>
                     </div>
 
-                    {/* <div>
+                    <div>
                         <TextareaInput 
                             label="Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs."
                             name="otherConcerns"
@@ -269,7 +271,7 @@ const WaiverForm = () => {
                             type="text"
                             placeholder="List your concerns here..."
                         />
-                    </div> */}
+                    </div>
 
                     <button type="submit" className="submit">Submit</button>
                 </Form>

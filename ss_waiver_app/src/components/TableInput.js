@@ -5,9 +5,12 @@ import { StyledQuestionLabel, StyledAnswer } from "../styles/FormStyles";
 
 const TableComponent = ({name, label, headerNames, options, ...props}) => {
     // Initial table data with header and empty rows
+    // can probably remove bc redundant with initial value, keep incase of issue rendering field.value
     const initialTableData = {
       header: [...headerNames],
-      rows: [["", "", "", "", ""], ["", "", "", "", ""], ["", "", "", "", ""]],
+      rows: [{medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
+                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
+                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
     };
   
     // const [tableData, setTableData] = useState(initialTableData);
@@ -42,11 +45,28 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
       console.log(value);
       helpers.setValue({
         ...value,
-        rows: [...value.rows, ["", "", "", "", ""]],
+        rows: [...value.rows, {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
       });
       setRowCount((prevRowCount) => Math.max(prevRowCount + 1));
     };
-  
+    
+    const handleCellChange = (e, rowIndex, cellKey) => {
+      const updatedRows = value.rows.map((row, idx) => {
+        if (idx === rowIndex) {
+          return {
+            ...row, 
+            [cellKey]: e.target.value
+          };
+        }
+        return row;
+      });
+
+      helpers.setValue({
+        ...value, 
+        rows: updatedRows
+      });
+    };
+
     return (
       <div>
         <StyledQuestionLabel>{label}</StyledQuestionLabel>
@@ -61,19 +81,12 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
           <tbody>
             {value.rows.map((row, rowIndex) => (
               <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
+                {Object.entries(row).map(([cellKey, cellValue], cellIndex) => (
                   <td key={cellIndex}>
                     <input
                       type="text"
-                      value={cell}
-                      onChange={(e) => {
-                        const updatedRows = [...value.rows];
-                        updatedRows[rowIndex][cellIndex] = e.target.value;
-                        helpers.setValue({
-                          ...value,
-                          rows: updatedRows,
-                        });
-                      }}
+                      value={cellValue}
+                      onChange={(e) => handleCellChange(e, rowIndex, cellKey)}
                     />
                   </td>
                 ))}
