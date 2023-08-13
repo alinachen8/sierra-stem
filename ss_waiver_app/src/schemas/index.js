@@ -73,15 +73,23 @@ export const formSchema = yup.object().shape({
     medications: yup
         .string()
         .required("Required"),
-    // medicationsDetails: yup
-    //     .object()
-    //     .when('medications', {
-    //         is: (medications) => medications && medications.value === "yes", 
-    //         then: () => yup.object().shape({
-    //             header: yup.array(),
-    //             rows: yup.array().required()
-    //         })
-    //     }),
+    medicationsDetails: yup
+        .object()
+        .when('medications', {
+            is: (medications) => medications && medications.value === "yes", 
+            then: () => yup.object().shape({
+                header: yup.array(),
+                rows: yup.array().of(
+                    yup.object().shape({
+                        medName: yup.string().required('Required'),
+                        condition: yup.string().required('Required'),
+                        dosageFreq: yup.string().required('Required'),
+                        admin: yup.string().required('Required'),
+                        selfAdmin: yup.string().required('Required'),
+                    })
+                )
+            })
+        }),
     psychConditions: yup
         .string()
         .required("Required"),
