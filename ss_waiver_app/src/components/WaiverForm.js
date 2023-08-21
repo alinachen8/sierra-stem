@@ -18,39 +18,15 @@ const onSubmit = async (values, actions) => {
     const tripId = 'test-trip'
     const colRef = collection(db, tripId)
 
-    // addDoc(colRef, values)
-    //     .then(() => {
-    //         console.log("great success!!")
-    //         actions.resetForm();
-    //     })
-    //     .catch((error) => {
-    //         console.log("error adding document:", error);
-    //     });
-    
-    // add another function that will add the medication information as a new doc to the medications collection
-    // in python will need to add the headers back on
-    if (values.medications === 'yes') {
-        const medicationId = `${tripId}-medications`
-        const medColRef = collection(db, medicationId)
+    addDoc(colRef, values)
+        .then(() => {
+            console.log("great success!!")
+            actions.resetForm();
+        })
+        .catch((error) => {
+            console.log("error adding document:", error);
+        });
 
-        const medicationData = {
-            firstName: values.firstName, 
-            lastName: values.lastName, 
-            medicationDetails: values.medicationDetails
-        }
-
-        console.log(medicationData)
-        // addDoc(colRef, medicationData)
-        //     .then(() => {
-        //         console.log(medicationData)
-        //         console.log("yay it worked")
-        //         actions.resetForm();
-        //     })
-        //     .catch((error) => {
-        //         console.log("error adding document:", error);
-        //     })
-            
-    }
 };
 
 const WaiverForm = () => {
@@ -74,12 +50,11 @@ const WaiverForm = () => {
                 otherAllergies: [],
                 otherAllergiesDetails:'',
                 medications: '',
-                medicationsDetails: {
-                    header: ['Medication Name', 'Condition', 'Dosage/Frequency', 'Administration (pill, injection, etc)', 'Self Administered? (yes/no)'],
-                    rows: [{medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
-                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
-                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
-                },
+                medicationsDetails: [
+                    {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
+                    {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
+                    {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}
+                ],
                 psychConditions: '',
                 psychConditionsDetails:'',
                 healthDisabilities: '',
