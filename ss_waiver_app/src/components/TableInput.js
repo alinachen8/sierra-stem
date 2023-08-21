@@ -6,12 +6,13 @@ import { StyledQuestionLabel, StyledAnswer } from "../styles/FormStyles";
 const TableComponent = ({name, label, headerNames, options, ...props}) => {
     // Initial table data with header and empty rows
     // can probably remove bc redundant with initial value, keep incase of issue rendering field.value
-    const initialTableData = {
-      header: [...headerNames],
-      rows: [{medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
-                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
-                           {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
-    };
+    const header = [...headerNames]
+
+    const initialTableData = [
+      {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
+      {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
+      {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}
+    ];
   
     // const [tableData, setTableData] = useState(initialTableData);
     const [field, meta, helpers] = useField(name);
@@ -26,32 +27,28 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
     }, [value]);
 
     const handleDeleteRow = () => {
-      if (value.rows.length === 1) {
+      if (value.length === 1) {
         return;
       }
 
-      const newRows = [...value.rows];
+      const newRows = [...value];
       newRows.pop();
 
-      helpers.setValue({
-        ...value,
-        rows: newRows,
-      });
+      helpers.setValue(newRows);
       
       setRowCount((prevRowCount) => prevRowCount - 1);
     };
 
     const handleAddRow = () => {
       console.log(value);
-      helpers.setValue({
-        ...value,
-        rows: [...value.rows, {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}],
-      });
+      const newRows = [...value];
+      newRows.push({medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""})
+      helpers.setValue(newRows);
       setRowCount((prevRowCount) => Math.max(prevRowCount + 1));
     };
     
     const handleCellChange = (e, rowIndex, cellKey) => {
-      const updatedRows = value.rows.map((row, idx) => {
+      const updatedRows = value.map((row, idx) => {
         if (idx === rowIndex) {
           return {
             ...row, 
@@ -61,10 +58,7 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
         return row;
       });
 
-      helpers.setValue({
-        ...value, 
-        rows: updatedRows
-      });
+      helpers.setValue(updatedRows);
     };
 
     return (
@@ -73,13 +67,13 @@ const TableComponent = ({name, label, headerNames, options, ...props}) => {
         <table className="medications-table">
           <thead>
             <tr>
-              {value.header.map((headerCell, index) => (
+              {header.map((headerCell, index) => (
                 <th key={index}>{headerCell}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {value.rows.map((row, rowIndex) => (
+            {value.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {Object.entries(row).map(([cellKey, cellValue], cellIndex) => (
                   <td key={`${rowIndex}-${cellKey}`}>
