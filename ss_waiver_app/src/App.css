@@ -158,3 +158,9 @@ select.input-error {
   gap: 20px;
   margin: 20px;
 }
+
+.EC-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+}

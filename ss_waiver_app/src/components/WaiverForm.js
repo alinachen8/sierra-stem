@@ -10,26 +10,27 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, colRef } from "../Firebase.js";
 import MedicationInput from "./MedicationInput";
 
-const onSubmit = async (values, actions) => {
-    console.log("pressed submit");
-    console.log(JSON.stringify(values));
+const WaiverForm = ({ handleFormSubmit }) => {
+    const onSubmit = async (values, actions) => {
+        console.log("pressed submit");
+        console.log(JSON.stringify(values));
+    
+        // this will need to be dynamic and depend on user input/authentication
+        const tripId = 'test-trip'
+        const colRef = collection(db, tripId)
+    
+        addDoc(colRef, values)
+            .then(() => {
+                console.log("great success!!")
+                actions.resetForm();
+                handleFormSubmit();
+            })
+            .catch((error) => {
+                console.log("error adding document:", error);
+            });
+    
+    };
 
-    // this will need to be dynamic and depend on user input/authentication
-    const tripId = 'test-trip'
-    const colRef = collection(db, tripId)
-
-    addDoc(colRef, values)
-        .then(() => {
-            console.log("great success!!")
-            actions.resetForm();
-        })
-        .catch((error) => {
-            console.log("error adding document:", error);
-        });
-
-};
-
-const WaiverForm = () => {
     return ( 
         <Formik
             initialValues={{
@@ -68,6 +69,7 @@ const WaiverForm = () => {
         >   
             {(props) => (
                 <Form>
+                    <h1>Participant Health Form</h1>
                     <div className='basic-info'>
                         <h3>Basic Information</h3>
                         <div className='name'>
@@ -266,6 +268,65 @@ const WaiverForm = () => {
                             type="text"
                             placeholder="List your concerns here..."
                         />
+                    </div>
+
+                    <div>
+                        <h3>Emergency Contact Information</h3>
+                        <div className="EC-info">
+                            <TextInput
+                                label="Full Name"
+                                className="input"
+                                type="text"
+                                name="EC-full-name"
+                                placeholder="Enter your full name"
+                            />
+
+                            <TextInput
+                                label="Relationship to Participant"
+                                className="input"
+                                type="text"
+                                name="EC-relationship"
+                                placeholder="e.g. Father, Mother, Guardian, etc..."
+                            />
+                            
+                            <TextInput
+                                label="Phone Number"
+                                className="input"
+                                type="tel"
+                                name="EC-number"
+                                placeholder="e.g. +1(123)-456-7890"
+                            />
+
+                            <TextInput
+                                label="Email Address"
+                                className="input"
+                                type="text"
+                                name="EC-email"
+                                placeholder="e.g. jdoe@gmail.com"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Consent to Treat: </h3>
+                        <p style={{display: 'inline'}}>Sierra STEM has the right to give first aid to </p>
+                        <input 
+                            style={{
+                                display: 'inline',
+                                border: 'none',
+                                borderBottom: '1px solid black',
+                                outline: 'none'
+                            }}
+                            placeholder="Participant's Full Name"
+                        />
+                        <p style={{display: 'inline'}}> 
+                            and to engage the service of a physician, emergency room, dentist, 
+                            and/or other healthcare provider or to hospitalize if deemed necessary. I further authorize Sierra STEM 
+                            to act as the participant’s representative in signing consent for necessary clinical or surgical 
+                            procedures when the participant is not able to do so. In the event of an emergency, I will be notified 
+                            as soon as possible. The cost of such service will be charged to the participant or parent/guardian 
+                            and paid by the same.
+                        </p>
                     </div>
 
                     <button type="submit" className="submit">Submit</button>
