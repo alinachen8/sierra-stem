@@ -53,8 +53,6 @@ const WaiverForm = ({ handleFormSubmit }) => {
                 medications: '',
                 medicationsDetails: [
                     {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""},
-                    {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}, 
-                    {medName: "", condition: "", dosageFreq: "", admin: "", selfAdmin: ""}
                 ],
                 psychConditions: '',
                 psychConditionsDetails:'',
@@ -62,13 +60,18 @@ const WaiverForm = ({ handleFormSubmit }) => {
                 healthDisabilitiesDetails:'',
                 medicalConditions: [],
                 medicalConditionsDetails: '',
-                otherConcerns: ''
+                otherConcerns: '',
+                ECFullName: '',
+                ECRelationship: '',
+                ECNumber: '',
+                ECEmail: '',
+                consentName: '',
             }}
             validationSchema={(formSchema)}
             onSubmit={(onSubmit)}
         >   
             {(props) => (
-                <Form>
+                <Form className="form">
                     <h1>Participant Health Form</h1>
                     <div className='basic-info'>
                         <h3>Basic Information</h3>
@@ -275,33 +278,33 @@ const WaiverForm = ({ handleFormSubmit }) => {
                         <div className="EC-info">
                             <TextInput
                                 label="Full Name"
-                                className="input"
+                                className="input EC-full-name"
                                 type="text"
-                                name="EC-full-name"
+                                name="ECFullName"
                                 placeholder="Enter your full name"
                             />
 
                             <TextInput
                                 label="Relationship to Participant"
-                                className="input"
+                                className="input EC-relationship"
                                 type="text"
-                                name="EC-relationship"
+                                name="ECRelationship"
                                 placeholder="e.g. Father, Mother, Guardian, etc..."
                             />
                             
                             <TextInput
                                 label="Phone Number"
-                                className="input"
+                                className="input EC-number"
                                 type="tel"
-                                name="EC-number"
+                                name="ECNumber"
                                 placeholder="e.g. +1(123)-456-7890"
                             />
 
                             <TextInput
                                 label="Email Address"
-                                className="input"
+                                className="input EC-email"
                                 type="text"
-                                name="EC-email"
+                                name="ECEmail"
                                 placeholder="e.g. jdoe@gmail.com"
                             />
                         </div>
@@ -317,6 +320,7 @@ const WaiverForm = ({ handleFormSubmit }) => {
                                 borderBottom: '1px solid black',
                                 outline: 'none'
                             }}
+                            name="consentName"
                             placeholder="Participant's Full Name"
                         />
                         <p style={{display: 'inline'}}> 
@@ -329,7 +333,7 @@ const WaiverForm = ({ handleFormSubmit }) => {
                         </p>
                     </div>
 
-                    <button type="submit" className="submit">Submit</button>
+                    <button type="submit" className="submit-button">Submit</button>
                 </Form>
             )}
         </Formik>

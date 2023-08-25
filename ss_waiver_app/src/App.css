@@ -45,6 +45,9 @@ code {
     monospace;
 }
 
+/* .form {
+  background-color: rgb(226, 249, 226);
+} */
 .basic-info {
   margin: 20px;
 }
@@ -162,5 +165,22 @@ select.input-error {
 .EC-info {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  
+  grid-row-gap: 10px;
+}
+
+.EC-full-name, .EC-relationship, 
+.EC-number, .EC-email {
+  /* background-color: red; */
+  text-align: left;
+}
+
+.submit-button { 
+  width: 100px;
+  background-color: #24a0ed;
+  height: 28px;
+  border: none;
+  font-weight: 500;
+  color: white;
+  margin: 20px;
+  cursor: pointer;
 }
