@@ -8,7 +8,7 @@ const TextareaInput = ({label, className, ...props}) => {
     return ( 
         <>
         {/* {console.log(meta.touched)} */}
-        <label>{label}</label> <br />
+        <label>{label}</label>
 
         <StyledTextarea
             {...field}

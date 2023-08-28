@@ -166,6 +166,7 @@ select.input-error {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-row-gap: 10px;
+  min-width: 0;
 }
 
 .EC-full-name, .EC-relationship, 

@@ -85,7 +85,7 @@ export const formSchema = yup.object().shape({
         .object()
         .when('medications', {
             is: (medications) => medications && medications.value === "yes", 
-            then: () => yup.array().of(medicationSchema);
+            then: () => yup.array().of(medicationSchema)
         }),
     psychConditions: yup
         .string()

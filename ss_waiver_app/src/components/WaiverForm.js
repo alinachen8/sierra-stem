@@ -260,10 +260,21 @@ const WaiverForm = ({ handleFormSubmit }) => {
                                     {value: "fainting", label: "Vasovagal syncope or other fainting episodes"}
                                 ]}
                             />
+
+                            <div>
+                                <TextareaInput 
+                                    label="Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs."
+                                    name="otherConcerns"
+                                    className="other-concerns-input"
+                                    type="text"
+                                    placeholder="List your concerns here..."
+                                />
+                            </div>    
+                            
                         </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <TextareaInput 
                             label="Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs."
                             name="otherConcerns"
@@ -271,7 +282,7 @@ const WaiverForm = ({ handleFormSubmit }) => {
                             type="text"
                             placeholder="List your concerns here..."
                         />
-                    </div>
+                    </div> */}
 
                     <div>
                         <h3>Emergency Contact Information</h3>
