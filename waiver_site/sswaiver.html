@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Waiver Form</title>
+</head>
+<body>
+	<form action="results.html" method="PUSH">
+		<h1>Participant Health Form</h1>
+		<div>
+			<p>Sierra STEM programs involve a variety of activities ranging in difficulty from group initiative problems to preparing food to hiking and exercising. Some programs may also include other rigorous physical adventure activities such as backpacking, cross-country skiing, climbing, paddling, or swimming. These activities are designed to be within the limits of a person who is in reasonably good health. Sierra STEM selects and designs activities in coordination with Partner Organizations to match the abilities of participants, while also aiming to push participants to grow outside of their comfort zones while remaining safe.</p>
+
+			<h3>Accurate and Complete Information</h3>
+			<p>The information requested on this form is intended to help alert staff to preexisting medical conditions. Misinformation could result in injury or illness or may compound the severity of an injury or illness. This form must be completed prior to participation in any Sierra STEM Experiential Learning program.</p>
+
+			<h3>Privacy</h3>
+			<ul>
+				<li>Health information provided here will be protected by Sierra STEM.</li>
+				<li>It may be shared with representatives of Partner Organizations when necessary for the health or safety of a participant.</li>
+				<li>It may be shared with healthcare providers in case of emergency.</li>
+			</ul>
+		</div>
+		<h3>Basic Information</h3>
+		<div> 
+			<label>Participant Name (First + Last): </label>
+			<input>
+		</div>
+		<div>
+			<label>Date of Birth (MM/DD/YYYY): </label>
+			<input>
+		</div>
+		<div>
+			<label>What are your preferred pronouns?</label> <br>
+			<input type="checkbox" id = "he/him" name = "he/him" value = "he/him">
+			<label for="he/him"> He/Him </label><br>
+			<input type="checkbox" id = "she/her" name = "she/her" value = "she/her">
+			<label for="she/her"> She/Her </label><br>
+			<input type="checkbox" id = "they/them" name = "they/them" value = "they/them">
+			<label for="they/them"> They/Them </label><br>
+			<input type="checkbox" id = "other" name = "other" value = "other">
+			<label for="other"> Other: </label>
+			<input>
+		</div>
+		<div>
+			<label>Height: </label>
+			<input placeholder="Feet"> <input placeholder="Inches">
+			<label>Weight: </label>
+			<input placeholder="Pounds">
+		</div>
+
+		<h3>Insurance</h3>
+		<div>
+			<p>Each participant must independently have health insurance coverage.</p> <br>
+			<label>Name of Health/Medical Insurance Company: </label>
+			<input>
+		</div>
+
+		<div>
+			<h3>Physical and Outdoor Activities</h3>
+			<label>Please describe any concerns you have about your participation in any of the physical activities included in this Sierra STEM program (e.g., a hike lasting up to 8 hours, rock climbing, sleeping in tents outdoors, paddling during whitewater rafting trip):</label><br>
+			<input>
+
+			<h3>Dietary Restrictions</h3>
+			<label>2. Do you have any food allergies? </label><br>
+			<input type="radio" id="yes" name="allergies">
+			<label for="yes">Yes</label><br>
+			<input type="radio" id="no" name="allergies">
+			<label for="no">No</label><br>
+
+			<label>If yes, please describe these food allergies: </label> <br>
+			<input><br>
+
+			<label>3. Do you have any other dietary restrictions? </label><br>
+			<input type="radio" id="yes" name="diet">
+			<label for="yes">Yes</label><br>
+			<input type="radio" id="no" name="diet">
+			<label for="no">No</label><br>
+
+			<label>If yes, please describe these dietary restrictions: </label> <br>
+			<input>
+		</div>
+
+		<div>
+			<h3>Medical Conditions</h3>
+			<label>4. Other than foods, do you have allergies/reactions to any: (check any/all that apply)</label><br>
+			<input type="checkbox" name="medications">
+			<label for="medications">Medications</label><br>
+			<input type="checkbox" name="plant_insect">
+			<label for="plant_insect">Plants or Insects</label><br>
+			<input type="checkbox" name="other">
+			<label for="other">Other: </label> <input><br>
+
+			<label>Please provide details about any allergies/reactions you indicated above. </label> <br>
+
+			<label>5. Do you have any chronic or recurring injuries or have you had surgery in the past year?</label><br>
+			<input type="checkbox" name="yes">
+			<label for="yes">Yes</label><br>
+			<input type="checkbox" name="no">
+			<label for="no">No</label><br>
+
+			<label>If yes to any of the above, please explain/describe:</label> <br>
+			<input> <br>
+
+			<label>6. Are you currently taking any medications?</label>
+			<input type="checkbox" name="yes">
+			<label for="yes">Yes</label>
+			<input type="checkbox" name="no">
+			<label for="no">No</label>
+
+			<label>If yes, please provide details about these medications (type, dosage, frequency, administration):</label>
+			<!-- for medication, add JS so can add rows dynamically to the html table -->
+			<table border="1px">
+				<tr> 
+					<th>Medication Name</th> <th>Condition</th> <th> Dosage/Frequency</th> <th> Administration (pill, injection, etc.)</th> <th>Self-Administered? (Yes/No)</th>
+				</tr>
+				<tr>
+					<td></td> <td></td> <td></td> <td></td> <td></td>
+				</tr>
+				<tr>
+					<td></td> <td></td> <td></td> <td></td> <td></td>
+				</tr>
+				<tr>
+					<td></td> <td></td> <td></td> <td></td> <td></td>
+				</tr>
+				<tr>
+					<td></td> <td></td> <td></td> <td></td> <td></td>
+				</tr>
+			</table>
+
+			<label>7. Are you experiencing any psychiatric conditions that could impact your participation?</label><br>
+			<input type="checkbox" name="yes">
+			<label for="yes">Yes</label><br>
+			<input type="checkbox" name="no">
+			<label for="no">No</label><br>
+
+			<label>If yes, please provide details about these conditions and treatment you are receiving.</label> <br>
+			<input> <br>
+
+			<label>8. Do you have any health disabilities (temporary or permanent) that you or your doctor feel could limit your participation in Sierra STEM’s programs?</label><br>
+			<input type="checkbox" name="yes">
+			<label for="yes">Yes</label><br>
+			<input type="checkbox" name="no">
+			<label for="no">No</label><br>
+
+			<label>If yes, please provide details about these health disabilities:</label> <br>
+			<input> <br>
+
+			<label>9.Do you have any of the following conditions? (check any/all that apply)</label><br>
+			<input type="checkbox" name="conditions" value="asthma">
+			<label for="asthma">Asthma</label><br>
+			<input type="checkbox" name="conditions" value="diabetes">
+			<label for="diabetes">Diabetes</label><br>
+			<input type="checkbox" name="conditions" value="epilepsy">
+			<label for="epilepsy">Epilepsy </label> <input><br>
+			<input type="checkbox" name="conditions" value="pregnancy">
+			<label for="pregnancy">Pregnancy </label> <input><br>
+			<input type="checkbox" name="conditions" value="heart_condition">
+			<label for="heart_condition">Heart Condition </label> <input><br>
+
+			<label>If yes to any of the above, please explain/describe: </label> <br>
+			<input><br>
+
+			<label>10. Do you have a history of any of the following conditions? (check any/all that apply)</label>
+
+			<input type="checkbox" name="conditions" value="fainting">
+			<label for="fainting">Vasovagal syncope or other fainting episodes</label><br>
+			<input type="checkbox" name="conditions" value="hbpressure">
+			<label for="hbpressure">High Blood Pressure</label><br>
+			<input type="checkbox" name="conditions" value="palpitations">
+			<label for="palpitations">Heart Palpitations</label><br>
+			<input type="checkbox" name="conditions" value="chest_pain">
+			<label for="chest_pain">Chest pain or pressure</label><br>
+			<input type="checkbox" name="conditions" value="heart_attack">
+			<label for="heart_attack">Heart Attack</label><br>
+			<input type="checkbox" name="conditions" value="heart_disease">
+			<label for="heart_disease">Heart Disease</label><br>
+			<input type="checkbox" name="conditions" value="heart_murmur">
+			<label for="heart_murmur">Heart murmur</label><br>
+			<input type="checkbox" name="conditions" value="stroke">
+			<label for="stroke">Stroke</label><br>
+			<input type="checkbox" name="conditions" value="seizure">
+			<label for="seizure">Seizure</label><br>
+			<input type="checkbox" name="conditions" value="implants">
+			<label for="seizure">Medical implants or devices of any kind</label><br>
+
+			<label>If yes to any of the above, please explain/describe: </label> <br>
+			<input><br>
+
+			<label>Please describe any other concerns or conditions that you or your doctor feel may affect your participation in Sierra STEM’s programs. We strongly recommend that you consult your physician before participation in Sierra STEM’s programs, especially if you have any of the conditions above.</label><br>
+			<textarea name="paragraph_text" cols="50" rows="10"></textarea>
+		</div>
+
+		<div>
+			<h3>Emergency Contact Information: </h3> 
+			<label for="fullname">Name (First + Last)</label>
+			<input type="text" name="fullname"><br>
+			<label for="relationship">Relationship to Participant</label>
+			<input type="text" name="relationship"><br>
+			<label for="phone1">Phone Number #1:</label>
+			<input type="tel" id="phone" name="phone1" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br>
+			<label for="phone2">Phone Number #2:</label>
+			<input type="tel" id="phone" name="phone2" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br>
+			<label for="email">Email Address: </label>
+			<input type="text" name="email"><br>
+
+
+		</div>
+
+
+
+
+			
+
+			
+			<!-- need to research how to make website HIPPA compliant with encryption -->
+
+		</div>
+	</form>
+</body>
+</html>
